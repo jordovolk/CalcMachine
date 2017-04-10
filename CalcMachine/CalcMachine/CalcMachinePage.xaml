@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalcMachine.CalcMachinePage"
+             SizeChanged="OnPageSizeChanged">
+
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="10, 20, 10, 10"
+                Android="10"
+                WinPhone="10" />
+  </ContentPage.Padding>
+
+  <Grid x:Name="mainGrid">
+    <!-- Initialized for Portrait mode. -->
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="0" />
+    </Grid.ColumnDefinitions>
+
+   
+
+    <!-- Keypad. -->
+    <Grid x:Name="keypadGrid"
+          Grid.Row="1" Grid.Column="0"
+          RowSpacing="2"
+          ColumnSpacing="2"
+          WidthRequest="240"
+          HeightRequest="360"
+          VerticalOptions="Center"
+          HorizontalOptions="Center">
+
+      <Grid.Resources>
+        <ResourceDictionary>
+          <Style TargetType="Button">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="BorderWidth" Value="1" />
+          </Style>
+        </ResourceDictionary>
+      </Grid.Resources>
+
+      <Label Text="{Binding CurrentEntry}"
+             Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+             FontSize="Large"
+             TextColor="Red"
+             
+             VerticalOptions="Center"
+             HorizontalTextAlignment="End" />
+
+      <Button Text="C"
+              Grid.Row="1" Grid.Column="0"
+              Command="{Binding ClearCommand}" />
+
+      <Button Text="="
+              Grid.Row="1" Grid.Column="1"
+              Command="{Binding EqualsCommand}" />
+
+      <Button Text="&#x21E6;"
+              Grid.Row="1" Grid.Column="2"
+              Command="{Binding BackspaceCommand}" />
+
+      <Button Text="+"
+              Grid.Row="1" Grid.Column="3" Grid.RowSpan="1"
+              Command="{Binding AddCommand}" />
+      <Button Text="-"
+                    Grid.Row="2" Grid.Column="3" Grid.RowSpan="1"
+                    Command="{Binding SubtractCommand}" />
+
+      <Button Text="X"
+                    Grid.Row="3" Grid.Column="3" Grid.RowSpan="1"
+                    Command="{Binding MultiplyCommand}" />
+      <Button Text="/"
+                 Grid.Row="4" Grid.Column="3" Grid.RowSpan="1"
+                 Command="{Binding DivideCommand}" />
+
+      <Button Text="7"
+              Grid.Row="2" Grid.Column="0"
+              Command="{Binding SevenCommand}"
+               />
+
+      <Button Text="8"
+              Grid.Row="2" Grid.Column="1"
+              Command="{Binding EightCommand}"
+             />
+
+      <Button Text="9"
+              Grid.Row="2" Grid.Column="2"
+              Command="{Binding NineCommand}"
+              />
+
+      <Button Text="4"
+              Grid.Row="3" Grid.Column="0"
+              Command="{Binding FourCommand}"
+              />
+
+      <Button Text="5"
+              Grid.Row="3" Grid.Column="1"
+              Command="{Binding FiveCommand}"
+              />
+
+      <Button Text="6"
+              Grid.Row="3" Grid.Column="2"
+              Command="{Binding SixCommand}"
+               />
+
+      <Button Text="1"
+              Grid.Row="4" Grid.Column="0"
+              Command="{Binding OneCommand}" />
+
+      <Button Text="2"
+              Grid.Row="4" Grid.Column="1"
+              Command="{Binding TwoCommand}"
+              />
+
+      <Button Text="3"
+              Grid.Row="4" Grid.Column="2"
+              Command="{Binding ThreeCommand}"
+              />
+
+      <Button Text="0"
+              Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+              Command="{Binding ZeroCommand}"
+               />
+
+      <Button Text="&#x00B7;"
+              Grid.Row="5" Grid.Column="2"
+              Command="{Binding DecimalPointCommand}" />
+    </Grid>
+  </Grid>
+</ContentPage>
