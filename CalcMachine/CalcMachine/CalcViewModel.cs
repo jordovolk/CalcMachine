@@ -14,7 +14,7 @@ namespace CalcMachine
         double containerAnswer = 0;
 
 
-        Label displayLabel;
+ 
         float num1, ans;
         int count;
         Int32 negativevalueassigned = 0;
@@ -22,7 +22,7 @@ namespace CalcMachine
 
         public CalcViewModel()
         {
-            displayLabel = new Label { Text = "" };
+          
             
             ClearCommand = new Command(
                 execute: () =>
